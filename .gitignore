@@ -1,0 +1,8 @@
+# Ignore all `.log` files
+*.log
+
+# Ignore a specific file
+development.c
+
+# Ignore the entire folder
+/tmp/
