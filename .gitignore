@@ -2,7 +2,7 @@
 *.log
 
 # Ignore a specific file
-development.c
+secret.txt
 
 # Ignore the entire folder
 /tmp/
