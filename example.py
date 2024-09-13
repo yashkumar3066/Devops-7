@@ -19,11 +19,17 @@ def sum_of_two_numbers(a, b):
 def addTwoNum(a, b):
     return a+b
 
+
+# Changes by Adi
+
+print ('Hello Adi')
+=======
 #changes by ashishlal
 def to_print(text):
     print(text)
 
 print('hello, hi bye')
+
 
 
 
