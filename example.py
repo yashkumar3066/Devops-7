@@ -1,3 +1,4 @@
+
 #@yashkumar3066
 def sum_of_two_numbers(a, b):
     """
@@ -11,3 +12,9 @@ def sum_of_two_numbers(a, b):
     int/float: Sum of a and b.
     """
     return a + b
+
+# changes made by ashishH
+
+def addTwoNum(a, b):
+    return a+b
+
