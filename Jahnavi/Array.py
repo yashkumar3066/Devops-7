@@ -2,13 +2,13 @@
 import array as arr
 
 # Creating an array of integers
-numbers = arr.array('i', [10, 20, 30, 40, 50])
+numbers = arr.array('i', [100, 200, 300, 400, 500])
 
 # Adding an element to the array
-numbers.append(60)
+numbers.append(600)
 
 # Removing an element from the array
-numbers.remove(30)
+numbers.remove(300)
 
 # Accessing and modifying an element
 numbers[2] = 35
