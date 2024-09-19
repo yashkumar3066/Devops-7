@@ -11,6 +11,7 @@ def quick_sort(arr):
         middle = [x for x in arr if x == pivot]
         right = [x for x in arr if x > pivot]
 
+<<<<<<< HEAD
         # Recursively sort the left and right partitions and combine them with the middle
         return quick_sort(left) + middle + quick_sort(right)
 
@@ -18,3 +19,39 @@ def quick_sort(arr):
 arr = [12, 4, 5, 6, 7, 3, 1, 15]
 sorted_arr = quick_sort(arr)
 print("Sorted array:", sorted_arr)
+=======
+
+#@yashkumar3066
+def sum_of_two_numbers(a, b):
+    """
+    Function to return the sum of two numbers.
+
+    Parameters:
+    a (int/float): First number.
+    b (int/float): Second number.
+
+    Returns:
+    int/float: Sum of a and b.
+    """
+    return a + b
+
+# changes made by ashishH
+
+def addTwoNum(a, b):
+    return a+b
+
+
+# Changes by Adi
+
+print ('Hello Adi')
+=======
+#changes by ashishlal
+def to_print(text):
+    print(text)
+
+print('hello, hi bye')
+
+
+
+
+>>>>>>> origin/main
