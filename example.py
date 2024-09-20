@@ -23,13 +23,14 @@ def addTwoNum(a, b):
 # Changes by Adi
 
 print ('Hello Adi')
-=======
+
 #changes by ashishlal
 def to_print(text):
     print(text)
 
 print('hello, hi bye')
 
+#changes by palash
 
 def quick_sort(arr):
     # Base case: if the array is empty or has one element, it's already sorted
