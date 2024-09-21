@@ -11,3 +11,13 @@ def calculate_factorial(n):
         for i in range(2, n + 1):
             result *= i
         return result
+
+# Author : Chaytali Jawalekar 21bcs026
+def fibonacci(n):
+    """Generate a Fibonacci sequence up to n terms."""
+    sequence = []
+    a, b = 0, 1
+    while len(sequence) < n:
+        sequence.append(a)
+        a, b = b, a + b
+    return sequence
