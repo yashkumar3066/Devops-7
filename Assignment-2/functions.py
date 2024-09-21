@@ -1,5 +1,6 @@
-# Author : Nancy Yadav 21bcs071
+import random
 
+# Author : Nancy Yadav 21bcs071
 def calculate_factorial(n):
     """Calculate the factorial of a number."""
     if n < 0:
@@ -47,3 +48,8 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+# Author : Sadikh Shaik 21BDS059
+def generate_random_number(start=1, end=100):
+    """Generate a random number between start and end."""
+    return random.randint(start,end)
