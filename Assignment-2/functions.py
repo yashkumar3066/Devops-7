@@ -27,3 +27,8 @@ def find_max(lst):
     if not lst:
         return None
     return max(lst)
+
+#Author: Ashish Lal 21bcs017
+def string_length(s):
+    """Calculate the length of a string."""
+    return len(s)
