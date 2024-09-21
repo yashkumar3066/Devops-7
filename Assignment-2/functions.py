@@ -83,44 +83,40 @@ def main():
     parser = argparse.ArgumentParser(description="Run various utility functions.")
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
 
-    # func1: Calculate Factorial
+    # func: Calculate Factorial
     parser_factorial = subparsers.add_parser('factorial', help='Calculate factorial of a number')
     parser_factorial.add_argument('number', type=int, nargs='?', default=5, help='Integer to calculate factorial')
 
-    # func2: Reverse a String
-    parser_reverse = subparsers.add_parser('reverse', help='Reverse a string')
-    parser_reverse.add_argument('string', type=str, nargs='?', default="Hello World", help='String to reverse')
-
-    # func3: Check Prime Number
+    # func: Check Prime Number
     parser_prime = subparsers.add_parser('is_prime', help='Check if a number is prime')
     parser_prime.add_argument('number', type=int, nargs='?', default=17, help='Integer to check for primality')
 
-    # func4: Generate Fibonacci Sequence
+    # func: Generate Fibonacci Sequence
     parser_fibonacci = subparsers.add_parser('fibonacci', help='Generate Fibonacci sequence')
     parser_fibonacci.add_argument('terms', type=int, nargs='?', default=10, help='Number of terms in Fibonacci sequence')
 
-    # func5: Convert Celsius to Fahrenheit
+    # func: Convert Celsius to Fahrenheit
     parser_celsius = subparsers.add_parser('celsius_to_fahrenheit', help='Convert Celsius to Fahrenheit')
     parser_celsius.add_argument('celsius', type=float, nargs='?', default=25.0, help='Temperature in Celsius')
 
-    # func6: Find Maximum in a List
+    # func: Find Maximum in a List
     parser_max = subparsers.add_parser('find_max', help='Find maximum number in a list')
     parser_max.add_argument('list', type=str, nargs='?', default="[3, 1, 4, 1, 5, 9, 2]", help='List of numbers (e.g., "[1, 2, 3]")')
 
-    # func7: Count Vowels in a String
+    # func: Count Vowels in a String
     parser_vowels = subparsers.add_parser('count_vowels', help='Count vowels in a string')
     parser_vowels.add_argument('string', type=str, nargs='?', default="ChatGPT is awesome!", help='String to count vowels in')
 
-    # func8: Sort a List
+    # func: Sort a List
     parser_sort = subparsers.add_parser('sort_list', help='Sort a list in ascending order')
     parser_sort.add_argument('list', type=str, nargs='?', default="[5, 2, 9, 1, 5, 6]", help='List of numbers to sort (e.g., "[3, 1, 4]")')
 
-    # func9: Generate a Random Number
+    # func: Generate a Random Number
     parser_random = subparsers.add_parser('generate_random', help='Generate a random number between start and end')
     parser_random.add_argument('start', type=int, nargs='?', default=1, help='Start of range')
     parser_random.add_argument('end', type=int, nargs='?', default=100, help='End of range')
 
-    # func10: Calculate the Length of a String
+    # func: Calculate the Length of a String
     parser_length = subparsers.add_parser('string_length', help='Calculate the length of a string')
     parser_length.add_argument('string', type=str, nargs='?', default="Hello, World!", help='String to calculate length')
 
@@ -130,9 +126,6 @@ def main():
         result = calculate_factorial(args.number)
         print(f"Factorial of {args.number} is {result}")
 
-    elif args.command == 'reverse':
-        result = reverse_string(args.string)
-        print(f"Reversed string: {result}")
 
     elif args.command == 'is_prime':
         result = is_prime(args.number)
