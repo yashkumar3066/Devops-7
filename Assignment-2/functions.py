@@ -35,11 +35,13 @@ def string_length(s):
     return len(s)
 
 
- #Author: Adi jain 21bcs003
+#Author: Adi jain 21bcs003
 def sort_list(lst):
     """Sort a list in ascending order."""
     return sorted(lst)
 
+
+#Author: Enduri Jahnavi 21bds019
 def is_prime(n):
     """Check if a number is prime."""
     if n <= 1:
