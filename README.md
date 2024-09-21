@@ -1,5 +1,5 @@
 # Devops-7
-Repo for Devops class
+Group 7's repo for Devops class
 
 ## Group Members
 - Adi
