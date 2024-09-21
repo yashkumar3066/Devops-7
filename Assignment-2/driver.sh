@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# run_functions.sh
-# This script runs all functions defined in functions.py sequentially.
+# Author : Yash Kumar 21bec059
 
 # Ensure the Python script exists
 if [ ! -f functions.py ]; then
