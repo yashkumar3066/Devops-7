@@ -58,3 +58,9 @@ def generate_random_number(start=1, end=100):
 def celsius_to_fahrenheit(c):
     """Convert Celsius to Fahrenheit."""
     return (c * 9/5) + 32
+
+# Author : Palash Bhasme, 21BCS076
+def count_vowels(s):
+    """Count the number of vowels in a string."""
+    vowels = 'aeiouAEIOU'
+    return sum(1 for char in s if char in vowels)
