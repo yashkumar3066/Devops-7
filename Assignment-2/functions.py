@@ -53,3 +53,8 @@ def is_prime(n):
 def generate_random_number(start=1, end=100):
     """Generate a random number between start and end."""
     return random.randint(start,end)
+
+# Author : C Sai Rithwik Reddy, 21BCS028
+def celsius_to_fahrenheit(c):
+    """Convert Celsius to Fahrenheit."""
+    return (c * 9/5) + 32
