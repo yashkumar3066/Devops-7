@@ -32,3 +32,8 @@ def find_max(lst):
 def string_length(s):
     """Calculate the length of a string."""
     return len(s)
+
+
+ #Author: Adi jain 21bcs003
+    parser_sort = subparsers.add_parser('sort_list', help='Sort a list in ascending order')
+    parser_sort.add_argument('list', type=str, nargs='?', default="[5, 2, 9, 1, 5, 6]", help='List of numbers to sort (e.g., "[3, 1, 4]")')
