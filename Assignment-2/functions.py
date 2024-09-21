@@ -21,3 +21,9 @@ def fibonacci(n):
         sequence.append(a)
         a, b = b, a + b
     return sequence
+
+# Author : Ashish Higgins 21bcs014
+def find_max(lst):
+    if not lst:
+        return None
+    return max(lst)
