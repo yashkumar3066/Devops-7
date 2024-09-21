@@ -1,5 +1,5 @@
 # Devops-7
-Test repo for Devops class
+Repo for Devops class
 
 ## Group Members
 - Adi
