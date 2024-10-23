@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        DOCKER_HOST = 'tcp://localhost:2375'
         APP_NAME = 'simple-web-app'
         DOCKER_IMAGE = 'simple-web-app:latest'
     }
