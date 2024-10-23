@@ -1,77 +1,13 @@
 pipeline {
     agent any
-
     environment {
         DOCKER_HOST = 'tcp://localhost:2375'
-        APP_NAME = 'simple-web-app'
-        DOCKER_IMAGE = 'simple-web-app:latest'
     }
-
     stages {
-        stage('Checkout') {
+        stage('Test Docker') {
             steps {
-                // Pull code from the repository
-                git url: 'https://github.com/yashkumar3066/Devops-7.git', branch: 'main'
+                bat 'docker --version'
             }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Build Docker image
-                    sh "docker build -t ${DOCKER_IMAGE} ./Assignment-3"
-                }
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run the application in a Docker container for testing
-                    sh "docker run -d --name ${APP_NAME} -p 5000:5000 ${DOCKER_IMAGE}"
-
-                    // Execute tests (basic test with curl)
-                    try {
-                        sh 'curl -f http://localhost:5000'
-                        echo 'Tests passed!'
-                    } catch (Exception e) {
-                        error 'Tests failed!'
-                    } finally {
-                        // Stop the Docker container
-                        sh "docker stop ${APP_NAME}"
-                        sh "docker rm ${APP_NAME}"
-                    }
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    // Push the Docker image to a Docker registry (optional)
-                    withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-                        sh "docker tag ${DOCKER_IMAGE} your-docker-repo/${DOCKER_IMAGE}"
-                        sh "docker push your-docker-repo/${DOCKER_IMAGE}"
-                    }
-                }
-            }
-        }
-
-        stage('Cleanup') {
-            steps {
-                script {
-                    // Remove local Docker image to free space
-                    sh "docker rmi ${DOCKER_IMAGE}"
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            // Clean up workspace after the build
-            cleanWs()
         }
     }
 }
