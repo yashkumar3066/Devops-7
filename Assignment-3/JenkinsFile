@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    bat "docker build -t ${DOCKER_IMAGE} ./Assignment-3"
+                    sh "docker build -t ${DOCKER_IMAGE} ./Assignment-3"
                 }
             }
         }
@@ -27,18 +27,18 @@ pipeline {
             steps {
                 script {
                     // Run the application in a Docker container for testing
-                    bat "docker run -d --name ${APP_NAME} -p 5000:5000 ${DOCKER_IMAGE}"
+                    sh "docker run -d --name ${APP_NAME} -p 5000:5000 ${DOCKER_IMAGE}"
 
                     // Execute tests (basic test with curl)
                     try {
-                        bat 'curl -f http://localhost:5000'
+                        sh 'curl -f http://localhost:5000'
                         echo 'Tests passed!'
                     } catch (Exception e) {
                         error 'Tests failed!'
                     } finally {
                         // Stop the Docker container
-                        bat "docker stop ${APP_NAME}"
-                        bat "docker rm ${APP_NAME}"
+                        sh "docker stop ${APP_NAME}"
+                        sh "docker rm ${APP_NAME}"
                     }
                 }
             }
@@ -49,9 +49,9 @@ pipeline {
                 script {
                     // Push the Docker image to a Docker registry (optional)
                     withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        bat "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-                        bat "docker tag ${DOCKER_IMAGE} your-docker-repo/${DOCKER_IMAGE}"
-                        bat "docker push your-docker-repo/${DOCKER_IMAGE}"
+                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                        sh "docker tag ${DOCKER_IMAGE} your-docker-repo/${DOCKER_IMAGE}"
+                        sh "docker push your-docker-repo/${DOCKER_IMAGE}"
                     }
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 script {
                     // Remove local Docker image to free space
-                    bat "docker rmi ${DOCKER_IMAGE}"
+                    sh "docker rmi ${DOCKER_IMAGE}"
                 }
             }
         }
