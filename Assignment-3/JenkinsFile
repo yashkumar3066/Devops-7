@@ -50,13 +50,10 @@ pipeline {
             steps {
                 script {
                     // Push the Docker image to a Docker registry
-                    withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        bat """
-                        echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin
-                        docker tag ${DOCKER_IMAGE} yashkumar3066/${DOCKER_IMAGE}
-                        docker push yashkumar3066/${DOCKER_IMAGE}
-                        """
-                    }
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+}
+
                 }
             }
         }
