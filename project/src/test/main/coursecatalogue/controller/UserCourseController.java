@@ -1,8 +1,8 @@
-package com.ashishhiggins.coursecatalogue.Controller;
+package main.coursecatalogue.Controller;
 
-import com.ashishhiggins.coursecatalogue.entity.Courses;
-import com.ashishhiggins.coursecatalogue.service.CourseService;
-import com.ashishhiggins.coursecatalogue.service.UserCourseService;
+import main.coursecatalogue.entity.Courses;
+import main.coursecatalogue.service.CourseService;
+import main.coursecatalogue.service.UserCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

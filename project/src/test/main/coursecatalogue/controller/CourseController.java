@@ -1,4 +1,4 @@
-package com.ashishhiggins.coursecatalogue.Controller;
+package main.coursecatalogue.Controller;
 
 import main.coursecatalogue.entity.Courses;
 import main.coursecatalogue.service.CourseService;
