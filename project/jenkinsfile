@@ -6,43 +6,46 @@ pipeline {
     environment {
         IMAGE_NAME = 'project/course-catalogue'  // Image name
     }
-    stages{
-        stage('Build Maven'){
-            steps{
+    triggers {
+        githubPush() // GitHub webhook trigger
+    }
+    stages {
+        stage('Build Maven') {
+            steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yashkumar3066/Devops-7.git']])
                 sh 'mvn clean install'
             }
         }
         stage('Stop and Deploy Docker Container') {
-                          steps {
-                              script {
-                                  sh '''
-                                  #!/bin/bash
+            steps {
+                script {
+                    sh '''
+                    #!/bin/bash
 
-                                  # Find the container running on port 9090
-                                  container_id=$(docker ps -q -f "publish=9090")
+                    # Find the container running on port 9090
+                    container_id=$(docker ps -q -f "publish=9090")
 
-                                  # Check if a container was found
-                                  if [ -n "$container_id" ]; then
-                                      echo "Stopping container $container_id running on port 9090..."
-                                      docker stop $container_id
+                    # Check if a container was found
+                    if [ -n "$container_id" ]; then
+                        echo "Stopping container $container_id running on port 9090..."
+                        docker stop $container_id
 
-                                      # Wait for the container to stop
-                                      while [ "$(docker ps -q -f "id=$container_id")" ]; do
-                                          echo "Waiting for container $container_id to stop..."
-                                          sleep 2
-                                      done
-                                      echo "Container $container_id stopped."
-                                  else
-                                      echo "No container running on port 9090."
-                                  fi
-                                  '''
-                              }
-                          }
-                      }
-        stage('Build Docker Image'){
-            steps{
-                script{
+                        # Wait for the container to stop
+                        while [ "$(docker ps -q -f "id=$container_id")" ]; do
+                            echo "Waiting for container $container_id to stop..."
+                            sleep 2
+                        done
+                        echo "Container $container_id stopped."
+                    else
+                        echo "No container running on port 9090."
+                    fi
+                    '''
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
                     sh 'docker build -t ${IMAGE_NAME} .'
                 }
             }
@@ -57,5 +60,4 @@ pipeline {
             }
         }
     }
-
 }
